@@ -1,0 +1,9 @@
+header.mdl-layout__header, .mdl-layout__tab-bar.mdl-js-ripple-effect,
+.mdl-layout__tab-bar-button.mdl-layout__tab-bar-left-button,
+.mdl-layout__tab-bar-button.mdl-layout__tab-bar-right-button {
+  background-color: #3498DB;
+}
+
+main.mdl-layout__content {
+  background-color: #ECF0F1;
+}
