@@ -7,3 +7,32 @@ header.mdl-layout__header, .mdl-layout__tab-bar.mdl-js-ripple-effect,
 main.mdl-layout__content {
   background-color: #ECF0F1;
 }
+
+article, h3, p {
+  background-color: #FFF;
+  margin-top: 2%;
+  margin-left: 17%;
+  margin-right: 17%;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+
+
+ font-family:'Godo';
+ font-style:normal;
+ font-weight:400;
+ src:url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'),
+     url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
+
+table {
+  width: 550px;
+}
+
+a {
+  text-align: center;
+}
+
+li {
+  display: inline;
+}
