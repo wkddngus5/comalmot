@@ -16,7 +16,10 @@
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
           <!-- Title -->
-          <span class="mdl-layout-title">컴알못</span>
+          <a id="comalmot" href="/"><span class="mdl-layout-title">컴알못</span></a>
+          <p id="accountName"><% if(login_ok) {%>
+            <%= login_id %>
+          <% } %></p>
         </div>
         <!-- Tabs -->
         <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
@@ -31,13 +34,23 @@
       <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">목록</span>
         <nav class="mdl-navigation">
-         <a class="mdl-navigation__link" href="">Link</a>
-         <a class="mdl-navigation__link" href="">Link</a>
-         <a class="mdl-navigation__link" href="">Link</a>
-         <a class="mdl-navigation__link" href="">Link</a>
+          <% if(login_ok) {%>
+            <a class="mdl-navigation__link" href="/logout">Logout</a>
+          <% } else{ %>
+              <a class="mdl-navigation__link" href="#" onclick="dim(true, 'login');">Login</a>
+          <% } %>
+         <a class="mdl-navigation__link" href="#" onclick="dim(true, 'addProduct')">제품 추가</a>
+         <a class="mdl-navigation__link" href="#" onclick="dim(true, 'addInformation')">정보 추가</a>
+         <a class="mdl-navigation__link" href="#">Link</a>
        </nav>
       </div>
+      <%- include login.ejs %>
+      <%- include signIn.ejs %>
+      <%- include addProduct.ejs %>
+      <%- include addInformation.ejs %>
       <main class="mdl-layout__content">
+        <!-- <button onclick="dim();">Dim</button> -->
+        <div id="dimmer" onclick="dim(false);"></div>
         <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
           <div class="page-content"><%- include cpu.ejs %></div>
         </section>

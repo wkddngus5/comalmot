@@ -1,5 +1,5 @@
-<article>
-  <table>
+<article id="cpu">
+  <table class="info">
     <tr>
       <th>
           <!-- Image card "whatCput"-->
@@ -21,122 +21,57 @@
         </div>
       </th>
     </tr>
-<table>
-
-<!-- <button onclick="dim();">Dim</button> -->
-<div id="dimmer" onclick="dim(false);"></div>
+  </table>
 <!-- Square card -->
 <hr>
 <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
   <thead>
     <tr>
       <th class="mdl-data-table__cell--non-numeric">이름</th>
-      <th>제조사</th>
+      <th class="mdl-data-table__cell--non-numeric">제조사</th>
       <th>코어</th>
       <th>비트</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <% for(var i=0; i<result.length; i++) {%>
-      <td class="mdl-data-table__cell--non-numeric"><%= result[i].name %></td>
-      <td class="mdl-data-table__cell--non-numeric"><%= result[i].company %></td>
-      <td><%= result[i].core %></td>
-      <td><%= result[i].bits %></td>
+    <% for(var i=0; i<productsList.length; i++) {%>
+      <% if(productsList[i].part=="CPU") { %>
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric"><%= productsList[i].name %></td>
+          <td class="mdl-data-table__cell--non-numeric"><%= productsList[i].company %></td>
+          <td><%= productsList[i].details.core %></td>
+          <td><%= productsList[i].details.bits %></td>
+        </tr>
       <% } %>
-    </tr>
+    <% } %>
   </tbody>
 </table>
+<hr><br>
 
 
-<div class="demo-card-square mdl-card mdl-shadow--2dp" id='cpuWhatInfo'>
-  <div class="mdl-card__supporting-text">
-    <h3>CPU란?</h3>
-    <p>
-      중앙정보처리장치. 컴퓨터에서 구성 단위 중 기억, 연산, 제어의 3대 기능을 종합하는 장치인
-      Central Processing Unit(중앙 처리 장치)의 줄임말.
-    </p>
+<div class="demo-card-square mdl-card mdl-shadow--2dp" id='cpuWhatInfo' style="overflow:scroll; height:70%;">
+    <div class="mdl-card__supporting-text" >
+      <% for(var i=0; i<informationsList.length; i++) {%>
+        <% if(informationsList[i].name=="cpuWhat") { %>
+          <h3><%= informationsList[i].title %></h3>
+          <p><%- informationsList[i].contents %></p>
+        <% } %>
+      <% } %>
 
-    <p>
-      컴퓨터의 대뇌라고 할 정도로 가장 중요한 부분으로, 프로그램의 명령어를 해석하여 데이터를
-      연산/처리를 하는 부분, 혹은 그 기능을 내장한 칩을 말한다. 컴퓨터가 동작하는데 필요한 모든 계산을 처리한다.
-      컴퓨터를 뇌에 비유하자면 단기기억 담당은 RAM, 장기기억은 하드디스크,
-      CPU는 사고를 담당하는 대뇌피질 정도로 볼 수 있겠다.
-      대뇌피질 없이 인간의 사고가 성립하지 않듯이 컴퓨터도 CPU 없이는 그냥 전기 먹는 하마일 뿐이다.
-      쉽게 말해서 컴퓨터의 뇌와 같다.
-    </p>
-
-    <p>
-      CPU 중에서도 각종 전자 부품과 반도체 칩을 하나의 작은 칩에 내장한 형태를 마이크로프로세서라고 한다.
-      마이크로프로세서는 '전기 밥통'이나 '냉장고'에 쓰이는 낮은 성능의 제품부터 슈퍼컴퓨터에 쓰이는 높은
-      성능의 제품까지 매우 다양하다. 마이크로프로세서들 가운데 가장 복잡하고 성능이 높은 제품은 컴퓨터의
-      연산 장치로 쓰인다.
-    </p>
-
-    <p>
-      조립컴퓨터 견적에서 돈을 많이 먹는 부품 중 하나.
-      게임할때는 CPU가 안 좋아도 그래픽카드가 좋으면 CPU가 좋고 그래픽카드가 안 좋은 것
-      보다는 좋은 퍼포먼스를 낸다고 알려져 있지만, CPU가 연산을 지시하기 때문에 그래픽 카드가
-      아무리 좋더라도 CPU가 좋지 않다면 CPU속도에 맞춰지기 때문에 제 성능을 발휘하지 못한다.
-      즉 못해도 둘 다 동급으로 맞춰 줘야 한다는 이야기.
-      다만 요즘 CPU는 좋기 때문에 이게 통하는 게 어쩌면 당연할 수밖에 없다.
-      그러므로 괜히 CPU 비싼거 끌려서 사지 말고 자신의 용도에 맞게 적당한 제품을 구매하도록 하자.
-      단, 장기적으로 사용할경우 조금 오버해서라도 상위제품을 구매하는게 좋을 수 있다.
-    </p>
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      나가기
-    </a>
-  </div>
+    </div>
 </div>
 
 
-<div class="demo-card-square mdl-card mdl-shadow--2dp" id='cpuPointInfo'>
+<div class="demo-card-square mdl-card mdl-shadow--2dp" id='cpuPointInfo' style="overflow:scroll; height:70%;">
+  <!-- <div id="" style="overflow:scroll; height:400px;"> -->
   <div class="mdl-card__supporting-text">
-    <h3>CPU 주요 포인트!</h3>
-    <h4>코어</h4>
-    <p>
-      컴퓨터를 구입할 때 CPU가 가장 중요한 부품이라는 것은 많이 알고 계실 것입니다.
-      하지만 요즘엔 듀얼코어니 쿼드코어니 하는 말을 많이 듣습니다.
-      '도대체 CPU와 코어는 어떻게 다를까?' 하는 의문이 드는게 당연할지도 모르겠습니다.
-      정확히 설명하자면 CPU 내부에 코어가 들어있다고 하면 될 것 같습니다.
-      코어란 각종 연산을 하는 CPU의 핵심 요소이며 CPU 내부에는 코어
-      말고도 컨트롤러, 캐시메모리 등이 들어있습니다.
-    </p>
-
-    <h4>쿨럭</h4>
-    <p>
-      클럭이란 CPU가 생각하는 속도라고 하면 이해가 쉬울것 같습니다.
-      컴퓨터의 회로 내부에는 신호가 돌아가고 있습니다. 이런 신호는 주기적인데 이 기본적인 신호 주기의
-      시간간격이 바로 클럭입니다. 클럭속도가 높아지면 이 클럭 주파수가 공급되는 회로의
-      동작 속도가 빨라지는 것입니다. 클럭속도의 단위는 GHz를 주로 사용합니다.
-      클럭속도가 높을수록 성능이 좋은 CPU라고 말할 수 있겠네요. 하지만 CPU의 클럭이 높다고 무조건
-      고성능은 아닙니다. 왜일까요? 예전에 싱글코어가 주류를 이루던 시절에는 클럭속도가 CPU의 성능을 나타내는
-      척도였습니다. CPU 제조사들은 클럭을 높이려 치열한 경쟁을 하였죠.
-      현재에도 클럭속도가 CPU의 성능을 나타내는 기준중의 하나입니다.
-      단, 같은 제품군의 CPU일때 말입니다. 같은 제품군의 CPU라면 클럭속도를 제외하고는
-      다른 요소가 같기 때문입니다. 예를 들면 코어 i7 900제품군에서는 클럭속도가 높은
-      CPU가 성능이 높다고 할 수 있습니다. i7 920 - 2.66 GHz, i7 930 - 2.8 GHz,
-      i7 950 - 3.06 GHz 등 클럭 속도만 다르기 때문입니다.
-    </p>
-  </div>
-  <div class="mdl-card__actions mdl-card--border">
-    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-      나가기
-    </a>
+    <% for(var i=0; i<informationsList.length; i++) {%>
+      <% if(informationsList[i].name=="cpuPoint") { %>
+        <h3><%= informationsList[i].title %></h3>
+        <p><%= informationsList[i].contents %></p>
+      <% } %>
+    <% } %>
   </div>
 </div>
-
-
-
-
-  <hr>
-
-
-
-
-
-
 
 </article>

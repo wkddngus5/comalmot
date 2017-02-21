@@ -30,9 +30,23 @@ table {
 }
 
 a {
+  color: #FFF;
   text-align: center;
 }
 
 li {
   display: inline;
+}
+
+#comalmot {
+  color: #FFF;
+  text-decoration: none;
+}
+
+#accountName {
+  background: none;
+  display: inline-block;
+  position: fixed;
+  right: 5%;
+
 }

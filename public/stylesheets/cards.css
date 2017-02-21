@@ -11,6 +11,14 @@
   background: url('../images/cpuPoint.jpg') center / cover;
 }
 
+#ramWhat {
+  background: url('../images/ramWhat.jpg') center
+}
+
+#ramPoint {
+  background: url('../images/ramPoint.jpg') center
+}
+
 .demo-card-image > .mdl-card__actions {
   height: 52px;
   padding: 16px;
@@ -37,8 +45,8 @@
 
 .demo-card-square.mdl-card {
   position: fixed;
-  top: 20%;
-  height: 80%;
+  top: 25%;
+  height: 90%;
   width: 65%;
   height: 320px;
   z-index: 10000;
@@ -51,4 +59,29 @@
 
 .mdl-card__supporting-text {
   width: 500px;
+}
+
+table {
+  margin:auto;
+}
+
+/*login_card*/
+#loginInfo {
+  top: 15%;
+  width: 45%;
+  left: 30%;
+}
+
+#signInInfo, #addInformationInfo {
+  top: 15%;
+  width: 45%;
+  left: 30%;
+}
+
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
 }

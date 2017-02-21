@@ -1,0 +1,27 @@
+<div class="demo-card-square mdl-card mdl-shadow--2dp" id='addInformationInfo' style="overflow:scroll; height:70%;">
+  <!-- <div id="" style="overflow:scroll; height:400px;"> -->
+  <div class="mdl-card__supporting-text">
+    <form action="addInformation" method="post" id="login">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">정보 추가</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+        <!-- Textfield with Floating Label -->
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" name="title" type="text" id="title">
+        <label class="mdl-textfield__label" for="sample3">제목</label>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield">
+        <textarea class="mdl-textfield__input" name="contents" type="text" rows= "10" id="sample5" ></textarea>
+        <label class="mdl-textfield__label" for="sample3">내용</label>
+      </div>
+      </div>
+      <hr>
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
+      onclick="document.getElementById('addInformation').submit()">
+        정보추가
+      </a>
+    </form>
+  </div>
+</div>
