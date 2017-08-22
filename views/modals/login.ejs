@@ -1,4 +1,4 @@
-<div class="demo-card-square mdl-card mdl-shadow--2dp" id='loginInfo' style="overflow:scroll; height:70%;">
+<div class="demo-card-square mdl-card mdl-shadow--2dp" id='loginModal' style="overflow:scroll; height:70%;">
   <!-- <div id="" style="overflow:scroll; height:400px;"> -->
   <div class="mdl-card__supporting-text">
     <form action="login" method="post" id="login">
@@ -18,12 +18,10 @@
       </div>
       </div>
       <hr>
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"
-      onclick="document.getElementById('login').submit()">
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="loginSubmit">
         로그인
       </a>
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent"
-      onclick="signIn()">
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" id="signIn">
         회원가입
       </a>
     </form>

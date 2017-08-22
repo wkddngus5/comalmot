@@ -1,87 +1,97 @@
 .demo-card-image.mdl-card {
-  width: 256px;
-  height: 256px;
+    width: 256px;
+    height: 256px;
 }
 
 #cpuWhat {
-  background: url('../images/cpuWhat.jpg') center / cover;
+    background: url('../images/cpuWhat.jpg') center / cover;
 }
 
 #cpuPoint {
-  background: url('../images/cpuPoint.jpg') center / cover;
+    background: url('../images/cpuPoint.jpg') center / cover;
 }
 
 #ramWhat {
-  background: url('../images/ramWhat.jpg') center
+    background: url('../images/ramWhat.jpg') center
 }
 
 #ramPoint {
-  background: url('../images/ramPoint.jpg') center
+    background: url('../images/ramPoint.jpg') center
 }
 
 .demo-card-image > .mdl-card__actions {
-  height: 52px;
-  padding: 16px;
-  background: rgba(0, 0, 0, 0.2);
-}
-.demo-card-image__filename {
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
+    height: 52px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.2);
 }
 
-#dimmer
-{
-    background:#000;
-    opacity:0.5;
-    position:fixed; /* important to use fixed, not absolute */
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    display:none;
-    z-index:9999; /* may not be necessary */
+.demo-card-image__filename {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .demo-card-square.mdl-card {
-  position: fixed;
-  top: 25%;
-  height: 90%;
-  width: 65%;
-  height: 320px;
-  z-index: 10000;
-  display:none;
+    position: fixed;
+    top: 25%;
+    height: 90%;
+    width: 65%;
+    z-index: 10000;
+    display: none;
 }
+
 .demo-card-square > .mdl-card__title {
-  color: #fff;
-  width: 500px;
+    color: #fff;
+    width: 500px;
 }
 
 .mdl-card__supporting-text {
-  width: 500px;
+    width: 500px;
 }
 
 table {
-  margin:auto;
+    margin: auto;
 }
 
-/*login_card*/
-#loginInfo {
-  top: 15%;
-  width: 45%;
-  left: 30%;
+/*modals*/
+.demo-card-square.mdl-card.mdl-shadow--2dp.is-visible {
+    top: 15%;
+    width: 45%;
+    left: 30%;
+    max-height: 332px;
 }
 
 #signInInfo, #addInformationInfo {
-  top: 15%;
-  width: 45%;
-  left: 30%;
+    top: 15%;
+    width: 45%;
+    left: 30%;
 }
 
 .demo-card-wide > .mdl-card__title {
-  color: #fff;
-  height: 176px;
+    color: #fff;
+    height: 176px;
 }
+
 .demo-card-wide > .mdl-card__menu {
-  color: #fff;
+    color: #fff;
+}
+
+.demo-card-square.mdl-card.is-visible{
+    display: block;
+}
+
+.demo-list-control {
+    width: 300px;
+}
+
+.demo-list-radio {
+    display: inline;
+}
+
+.details {
+    display: none;
+}
+
+.details.is-visible {
+    display: block;
 }

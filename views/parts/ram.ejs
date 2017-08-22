@@ -37,16 +37,14 @@
     </tr>
   </thead>
   <tbody>
-    <% for(var i=0; i<productsList.length; i++) {%>
-      <% if(productsList[i].part=="RAM") { %>
-        <tr>
-          <td class="mdl-data-table__cell--non-numeric"><%= productsList[i].name %></td>
-          <td class="mdl-data-table__cell--non-numeric"><%= productsList[i].company %></td>
-          <td class="mdl-data-table__cell--non-numeric"><%= productsList[i].details.capacity %></td>
-          <td class="mdl-data-table__cell--non-numeric"><%= productsList[i].details.classify %></td>
-          <td class="mdl-data-table__cell--non-numeric"><%= productsList[i].details.speed %></td>
-        </tr>
-      <% } %>
+    <% for(var i = 0 ; i < ramList.length ; i++) {%>
+      <tr>
+        <td class="mdl-data-table__cell--non-numeric"><%= ramList[i].name %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= ramList[i].company %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= ramList[i].details.capacity %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= ramList[i].details.classify %></td>
+        <td class="mdl-data-table__cell--non-numeric"><%= ramList[i].details.speed %></td>
+      </tr>
     <% } %>
   </tbody>
 </table>

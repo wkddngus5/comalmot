@@ -1,0 +1,66 @@
+<div class="demo-card-square mdl-card mdl-shadow--2dp" id='addProductModal' style="overflow:scroll; height:70%;">
+    <div class="mdl-card__supporting-text">
+        <select class="selectPart" name="productParts">
+            <option value="cpu">CPU</option>
+            <option value="ram">RAM</option>
+            <option value="mainBoard">메인보드</option>
+            <option value="vga">VGA</option>
+            <option value="sdd">SSD</option>
+            <option value="hdd">HDD</option>
+        </select>
+        <form action="login" method="post" id="addProductForm">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="name" type="text" id="name">
+                <label class="mdl-textfield__label" for="sample3">NAME</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="company" type="text" id="company">
+                <label class="mdl-textfield__label" for="sample3">COMPANY</label>
+            </div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" name="part" type="text" id="part">
+                <label class="mdl-textfield__label" for="sample3">PART</label>
+            </div>
+
+            <div class="details is-visible" id="cpuDetails">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="core" type="text" id="core">
+                    <label class="mdl-textfield__label" for="sample3">CORE</label>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="bits" type="text" id="bits">
+                    <label class="mdl-textfield__label" for="sample3">BITS</label>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="thread" type="text" id="thread">
+                    <label class="mdl-textfield__label" for="sample3">THREAD</label>
+                </div>
+            </div>
+
+            <div class="details" id="ramDetails">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="capacity" type="text" id="capacity">
+                    <label class="mdl-textfield__label" for="sample3">CAPACITY</label>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="classify" type="text" id="classify">
+                    <label class="mdl-textfield__label" for="sample3">CLASSIFY</label>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="speed" type="text" id="speed">
+                    <label class="mdl-textfield__label" for="sample3">SPEED</label>
+                </div>
+            </div>
+
+            <hr>
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                제품 추가
+            </a>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,72 @@
+<article id="cpu">
+  <table class="info">
+    <tr>
+      <th>
+          <!-- Image card "whatCput"-->
+        <div class="demo-card-image mdl-card mdl-shadow--2dp" id="cpuWhat">
+          <div class="mdl-card__title mdl-card--expand"></div>
+          <div class="mdl-card__actions">
+            <span class="demo-card-image__filename">CPU란?</span>
+          </div>
+        </div>
+        <!-- <button onclick="dim();">Dim</button> -->
+      </th>
+      <th>
+        <!-- Image card "whatCput"-->
+        <div class="demo-card-image mdl-card mdl-shadow--2dp" id="cpuPoint">
+          <div class="mdl-card__title mdl-card--expand"></div>
+          <div class="mdl-card__actions">
+            <span class="demo-card-image__filename">주요 포인트!</span>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </table>
+  <!-- Square card -->
+  <hr>
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">이름</th>
+        <th class="mdl-data-table__cell--non-numeric">제조사</th>
+        <th>코어</th>
+        <th>비트</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(var i=0; i<cpuList.length; i++) {%>
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric"><%= cpuList[i].name %></td>
+          <td class="mdl-data-table__cell--non-numeric"><%= cpuList[i].company %></td>
+          <td><%= cpuList[i].details.core %></td>
+          <td><%= cpuList[i].details.bits %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+  <hr><br>
+
+  <div class="demo-card-square mdl-card mdl-shadow--2dp" id='cpuWhatInfo' style="overflow:scroll; height:70%;">
+      <div class="mdl-card__supporting-text" >
+        <% for(var i=0; i<informationsList.length; i++) {%>
+          <% if(informationsList[i].name=="cpuWhat") { %>
+            <h3><%= informationsList[i].title %></h3>
+            <p><%- informationsList[i].contents %></p>
+          <% } %>
+        <% } %>
+
+      </div>
+  </div>
+
+  <div class="demo-card-square mdl-card mdl-shadow--2dp" id='cpuPointInfo' style="overflow:scroll; height:70%;">
+    <!-- <div id="" style="overflow:scroll; height:400px;"> -->
+    <div class="mdl-card__supporting-text">
+      <% for(var i=0; i<informationsList.length; i++) {%>
+        <% if(informationsList[i].name=="cpuPoint") { %>
+          <h3><%= informationsList[i].title %></h3>
+          <p><%= informationsList[i].contents %></p>
+        <% } %>
+      <% } %>
+    </div>
+  </div>
+</article>

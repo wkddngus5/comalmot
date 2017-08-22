@@ -1,34 +1,68 @@
-function cardDisplay(bool, string){
-  // console.log(string);
-  document.getElementById(string+'Info').style.display='block';
-}
+document.addEventListener('DOMContentLoaded', () => {
+  new Navigator();
+});
 
-function dim(bool, string){
-  if (typeof bool=='undefined') bool=false; // so you can shorten dim(true) to dim()
-  document.getElementById('dimmer').style.display=(bool?'block':'none');
-  if(bool==true) cardDisplay(bool, string);
-  else {
-    var cardList = document.getElementsByClassName('demo-card-square mdl-card');
-    for (var i=0; i<cardList.length; i++){
-      cardList[i].style.display='none';
+class Navigator {
+  constructor() {
+    this.nowModal = null;
+    this.nowAddProduct = document.querySelector('#cpuDetails');
+    this.init();
+  }
+
+  init() {
+    document.querySelector('.mdl-layout__drawer').addEventListener('click', e => {
+      this.navLogic(e);
+    });
+
+    setTimeout(() => {
+      if(document.querySelector('.mdl-layout__obfuscator')) {
+        document.querySelector('.mdl-layout__obfuscator').addEventListener('click', () => {
+          this.exitModal();
+          this.exitDim();
+          this.exitNav();
+        });
+      }else {
+       console.log('dim is not loaded yet');
+      }
+    }, 90);
+
+    document.querySelector('.selectPart').addEventListener('change', this.changeDetails.bind(this));
+  }
+
+  changeDetails() {
+    let part = document.querySelector('.selectPart').value;
+
+    let toShow = document.querySelector('#' + part + 'Details');
+    if(toShow) {
+      this.nowAddProduct.classList.remove('is-visible');
+      this.nowAddProduct = toShow;
+      this.nowAddProduct.classList.add('is-visible');
+      //animation으로 천천히 생기게
     }
   }
-  console.log('dim!!');
-}
 
+  showModal(name) {
+    this.nowModal = document.querySelector('#' + name + 'Modal');
+    this.nowModal.classList.add('is-visible');
+  }
 
-function addInfo(){
-  var btn = document.createElement("INPUT");        // Create a <button> element
-  var t = document.createTextNode("CLICK ME");       // Create a text node
-  btn.appendChild(t);                                // Append the text to <button>
-  document.getElementById("zone").appendChild(btn);
-}
+  exitModal() {
+    if(this.nowModal) {
+     this.nowModal.classList.remove('is-visible');
+     this.nowModal = null;
+    }
+  }
 
-function signIn(){
-  console.log("signIn!!!!!");
-  dim(false);
-  dim(true, "signIn");
+  exitNav() {
+    document.querySelector('.mdl-layout__drawer').classList.remove('is-visible');
+  }
+
+  exitDim() {
+    document.querySelector('.mdl-layout__obfuscator').classList.remove('is-visible');
+  }
+
+  navLogic(e) {
+    this.exitModal();
+    this.showModal(e.target.id);
+    }
 }
-//
-// dim(true); // on
-// dim(false); // off
