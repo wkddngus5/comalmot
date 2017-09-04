@@ -1,0 +1,101 @@
+document.addEventListener('DOMContentLoaded', () => {
+  new Navigator();
+});
+
+class Navigator {
+  constructor() {
+    if ('serviceWorker' in navigator) {
+      console.log('Service worker is supported');
+      navigator.serviceWorker.register('/javascripts/sw.js').then(reg => {
+        console.log(':^)', reg);
+      }).catch(err => {
+        console.log(':^)', reg);
+      });
+    }
+    this.nowModal = null;
+    this.nowInfo = null;
+    this.nowAddProduct = document.querySelector('#cpuDetails');
+    this.init();
+  }
+
+  init() {
+    document.querySelector('.mdl-layout__drawer').addEventListener('click', e => {
+      this.navLogic(e);
+    });
+
+    setTimeout(() => {
+      if(document.querySelector('.mdl-layout__obfuscator')) {
+        document.querySelector('.mdl-layout__obfuscator').addEventListener('click', () => {
+          this.exitModal();
+          this.exitDim();
+          this.exitNav();
+        });
+        document.querySelector('.mdl-layout__content').addEventListener('click', evnet => {
+          this.showInfoModal(evnet);
+        });
+      } else {
+        console.log('dim is not loaded yet');
+      }
+    }, 300);
+    document.querySelector('.selectPart').addEventListener('change', this.changeDetails.bind(this));
+  }
+
+  showInfoModal(event) {
+    if(event.target.className === 'mdl-card__title mdl-card--expand') {
+      this.showDim();
+      this.showModal('information');
+      this.showInformation(event.target.closest('.demo-card-image').id);
+    }
+  }
+
+  showInformation(id) {
+    if(this.nowInfo) {
+      this.nowInfo.classList.remove('is-visible');
+    }
+    let name = id.split('Img')[0];
+    this.nowInfo = document.querySelector('#' + name);
+    this.nowInfo.classList.add('is-visible');
+  }
+
+  changeDetails() {
+    let part = document.querySelector('.selectPart').value;
+
+    document.querySelector('.selectBox label').innerText = part;
+    let toShow = document.querySelector('#' + part + 'Details');
+    if(toShow) {
+      this.nowAddProduct.classList.remove('is-visible');
+      this.nowAddProduct = toShow;
+      this.nowAddProduct.classList.add('is-visible');
+      //animation으로 천천히 생기게
+    }
+  }
+
+  showModal(name) {
+    this.nowModal = document.querySelector('#' + name + 'Modal');
+    this.nowModal.classList.add('is-visible');
+  }
+
+  exitModal() {
+    if(this.nowModal) {
+      this.nowModal.classList.remove('is-visible');
+      this.nowModal = null;
+    }
+  }
+
+  exitNav() {
+    document.querySelector('.mdl-layout__drawer').classList.remove('is-visible');
+  }
+
+  showDim() {
+    document.querySelector('.mdl-layout__obfuscator').classList.add('is-visible');
+  }
+
+  exitDim() {
+    document.querySelector('.mdl-layout__obfuscator').classList.remove('is-visible');
+  }
+
+  navLogic(e) {
+    this.exitModal();
+    this.showModal(e.target.id);
+  }
+}

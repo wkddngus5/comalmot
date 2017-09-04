@@ -61,6 +61,7 @@ function getInfomations() {
 
 /* GET home page. */
 router.get('/', (req, res) => {
+  console.log('session: ', req.session);
   let productsList;
   let informationsList;
 
@@ -139,13 +140,13 @@ router.post('/signIn', function(req, res){
 });
 
 router.post('/login', (req, res) => {
-  console.log(req.header);
   const inputId = req.body.id;
   const inputPassword = req.body.password;
 
   req.session.login_ok = true;
   req.session.login_id = inputId;
-  res.json({
+  console.log('request session: ', req.session);
+  res.status(200).json({
     "id": inputId,
     "password": inputPassword
   });
@@ -164,6 +165,22 @@ router.post('/login', (req, res) => {
   //     res.json({error: 'login false'});
   //   }
   // });
+});
+
+router.post('/product', (req, res) => {
+  console.log('input: ', req.body);
+  let product = new Product();
+  product.name = req.body.name;
+  product.company = req.body.company;
+  product.part = req.body.part;
+  product.details = req.body.details;
+
+  product.save(err => {
+    if(err) {
+      res.status(500).json({'err':err});
+    }
+    res.status(201).json(product);
+  })
 });
 
 router.get('/logout', function(req, res){

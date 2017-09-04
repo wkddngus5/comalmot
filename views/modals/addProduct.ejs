@@ -1,13 +1,16 @@
 <div class="demo-card-square mdl-card mdl-shadow--2dp" id='addProductModal' style="overflow:scroll; height:70%;">
     <div class="mdl-card__supporting-text">
-        <select class="selectPart" name="productParts">
-            <option value="cpu">CPU</option>
-            <option value="ram">RAM</option>
-            <option value="mainBoard">메인보드</option>
-            <option value="vga">VGA</option>
-            <option value="sdd">SSD</option>
-            <option value="hdd">HDD</option>
-        </select>
+        <div class="selectBox">
+            <label for="selectPart">CPU</label>
+            <select class="selectPart" id="selectPart" name="productParts">
+                <option selected value="cpu">CPU</option>
+                <option value="ram">RAM</option>
+                <option value="mainBoard">메인보드</option>
+                <option value="vga">VGA</option>
+                <option value="sdd">SSD</option>
+                <option value="hdd">HDD</option>
+            </select>
+        </div>
         <form action="login" method="post" id="addProductForm">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                 <input class="mdl-textfield__input" name="name" type="text" id="name">
@@ -56,8 +59,25 @@
                 </div>
             </div>
 
+            <div class="details" id="mainBoardDetails">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="cpuSocket" type="text" id="cpuSocket">
+                    <label class="mdl-textfield__label" for="sample3">CPU SOCKET</label>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="cacheMemory" type="text" id="cacheMemory">
+                    <label class="mdl-textfield__label" for="sample3">CACHE MEMORY</label>
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" name="graphicCardSlot" type="text" id="graphicCardSlot">
+                    <label class="mdl-textfield__label" for="sample3">GRAPHIC CARD SLOT</label>
+                </div>
+            </div>
+
             <hr>
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="addProductButton">
                 제품 추가
             </a>
         </form>
