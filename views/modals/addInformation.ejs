@@ -1,0 +1,35 @@
+<div class="demo-card-square mdl-card mdl-shadow--2dp" id='addInformationModal' style="overflow:scroll; height:70%;">
+    <form>
+        <div class="selectBox">
+            <label for="selectInfo">CHOOSE THE KIND</label>
+            <select class="selectInfo" id="selectInfo" name="infoParts">
+                <option selected value="cpuWhat">what's the CPU?</option>
+                <option selected value="cpuPoint">CPU's point</option>
+                <option selected value="ramWhat">what's the RAM?</option>
+                <option selected value="ramPoint">RAM's point</option>
+                <option selected value="mainBoardWhat">what's the Main board</option>
+                <option selected value="mainBoardPoint">Main board's point</option>
+                <option selected value="vgaWhat">what's the VGA?</option>
+                <option selected value="vgaPoint">VGA's point</option>
+            </select>
+        </div>
+        <br>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" name="title" type="text" id="title">
+            <label class="mdl-textfield__label" for="sample3">TITLE</label>
+        </div>
+        <textarea id="describeInformation" name="editor1" id="editor1" rows="10" cols="80">
+            This is my textarea to be replaced with CKEditor.
+        </textarea>
+        <script>
+          // Replace the <textarea id="editor1"> with a CKEditor
+          // instance, using default configuration.
+          CKEDITOR.replace('editor1');
+        </script>
+    </form>
+    <br>
+    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="addInformationButton">
+        저장
+    </button>
+</div>
+

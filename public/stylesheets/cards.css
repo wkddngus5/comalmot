@@ -64,6 +64,7 @@ table {
 /*modals*/
 .demo-card-square.mdl-card.mdl-shadow--2dp {
     z-index: 0;
+    padding: 20px;
 }
 
 .demo-card-square.mdl-card.mdl-shadow--2dp.is-visible {
@@ -124,3 +125,4 @@ table {
     display: block;
     opacity: 1;
 }
+

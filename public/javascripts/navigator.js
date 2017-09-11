@@ -30,14 +30,30 @@ class Navigator {
           this.exitDim();
           this.exitNav();
         });
-        document.querySelector('.mdl-layout__content').addEventListener('click', evnet => {
-          this.showInfoModal(evnet);
+        document.querySelector('.mdl-layout__content').addEventListener('click', e => {
+          this.showInfoModal(e);
         });
       } else {
         console.log('dim is not loaded yet');
       }
     }, 300);
     document.querySelector('.selectPart').addEventListener('change', this.changeDetails.bind(this));
+    document.querySelector('.selectInfo').addEventListener('change', e => {
+      e.target.closest('.selectBox').querySelector('label').innerText = e.target.value;
+    });
+    document.querySelector("#moveToSignUp").addEventListener('click', event => {
+      this.flip('loginModal')
+    });
+  }
+
+  flip(id) {
+    let toFlipp = document.querySelector('#' + id);
+    console.log('flipped!');
+    if(toFlipp.classList.contains('flipped')) {
+      toFlipp.classList.remove('flipped');
+    } else {
+      toFlipp.classList.add('flipped');
+    }
   }
 
   showInfoModal(event) {
@@ -59,7 +75,6 @@ class Navigator {
 
   changeDetails() {
     let part = document.querySelector('.selectPart').value;
-
     document.querySelector('.selectBox label').innerText = part;
     let toShow = document.querySelector('#' + part + 'Details');
     if(toShow) {

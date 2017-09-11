@@ -1,8 +1,8 @@
 <div class="demo-card-square mdl-card mdl-shadow--2dp" id='informationModal' style="overflow:scroll; height:70%;">
     <% for(var i=0; i<informationsList.length; i++) {%>
         <div class="informations" id="<%= informationsList[i].name %>">
-            <h2><%= informationsList[i].title %></h2>
-            <p><%= informationsList[i].contents %></p>
+            <h2 class="informationTitle"><%= informationsList[i].title %></h2>
+            <p class="informationContents"><%- informationsList[i].contents %></p>
         </div>
     <% } %>
 </div>

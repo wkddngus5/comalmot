@@ -77,6 +77,10 @@ router.get('/', (req, res) => {
     return getInfomations();
   }).then(informations => {
     informationsList = informations;
+    for(let i = 0 ; i < informationsList.length ; i++ ) {
+      informationsList[i].contents = informationsList[i].contents.replace('\r\n\r\n', '<br><br>');
+      console.log(informationsList[i].contents);
+    }
 
     for(let i = 0 ; i < productsList.length ; i++) {
       switch (productsList[i].part) {
@@ -183,12 +187,25 @@ router.post('/product', (req, res) => {
   })
 });
 
+router.post('/information', (req, res) => {
+  Information.find({name:req.body.name}, (err, info) => {
+    if(err) {
+      res.status(500).json({'err':err});
+    }
+    if(!info) {
+      console.log('no info!');
+      res.status(200).json({'err':'no info'});
+    }
+    res.status(201).json(info);
+  });
+});
+
 router.get('/logout', function(req, res){
   req.session.destroy();
   res.redirect('/');
 });
 
-router.post('/addInformation', function(req, res){
+router.post('/information', function(req, res){
   var information = new Information();
   information.title = req.body.title;
   information.contents = req.body.contents;
@@ -198,24 +215,8 @@ router.post('/addInformation', function(req, res){
       console.error(err);
       res.status(500).send({error: 'data save failure'});
     }
-    res.redirect('/');
+    res.status(201).json(information);
   });
 });
-
-router.post('/addProduct', function(req, res){
-  var information = new Information();
-  information.title = req.body.title;
-  information.contents = req.body.contents;
-
-  information.save(function(err){
-    if(err) {
-      console.error(err);
-      res.status(500).send({error: 'data save failure'});
-    }
-    res.redirect('/');
-  });
-});
-
-
 
 module.exports = router;

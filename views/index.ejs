@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
         <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script src="//cdn.ckeditor.com/4.7.2/basic/ckeditor.js"></script>
     </head>
     <body>
         <!-- Simple header with scrollable tabs. -->
@@ -44,13 +45,14 @@
                     <a class="mdl-navigation__link" href="#" id="login">Login</a>
                     <% } %>
                     <a class="mdl-navigation__link" href="#" id="addProduct">제품 추가</a>
-                    <a class="mdl-navigation__link" href="#">정보 추가</a>
+                    <a class="mdl-navigation__link" id="addInformation" href="#">정보 추가</a>
                     <a class="mdl-navigation__link" href="#">Link</a>
                 </nav>
             </div>
 
             <%- include modals/login.ejs %>
             <%- include modals/addProduct.ejs %>
+            <%- include modals/addInformation.ejs %>
             <%- include modals/information.ejs %>
             <%- include addInformation.ejs %>
 

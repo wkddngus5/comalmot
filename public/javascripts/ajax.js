@@ -13,7 +13,32 @@ class Ajax {
     });
     document.querySelector('#addProductButton').addEventListener('click', e => {
       this.addProduct();
-    })
+    });
+    document.querySelector('#addInformationButton').addEventListener('click', e => {
+      this.addInformation(e);
+    });
+  }
+
+  addInformation(e) {
+    let information = {
+      name: e.target.closest('#addInformationModal').querySelector('label').innerText,
+      title: document.querySelector('#title').value,
+      contents: CKEDITOR.instances.describeInformation.getData()
+    }
+
+    fetch('http://localhost:3000/information', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(information)
+    }).then(res => {
+      console.log(res);
+      return res.json();
+    }).then(json => {
+      console.log('res: ', json);
+    });
   }
 
   login(e) {
