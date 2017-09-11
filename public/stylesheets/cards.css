@@ -3,20 +3,28 @@
     height: 256px;
 }
 
-#cpuWhat {
+#cpuWhatImg {
     background: url('../images/cpuWhat.jpg') center / cover;
 }
 
-#cpuPoint {
+#cpuPointImg {
     background: url('../images/cpuPoint.jpg') center / cover;
 }
 
-#ramWhat {
+#ramWhatImg {
     background: url('../images/ramWhat.jpg') center
 }
 
-#ramPoint {
+#ramPointImg {
     background: url('../images/ramPoint.jpg') center
+}
+
+#mainBoardWhatImg {
+    background: url('../images/mainBoardWhat.jpeg') center
+}
+
+#mainBoardPointImg {
+    background: url('../images/mainBoardPoint.jpg') center
 }
 
 .demo-card-image > .mdl-card__actions {
@@ -36,8 +44,8 @@
     top: 25%;
     height: 90%;
     width: 65%;
-    z-index: 10000;
-    display: none;
+    opacity: 0;
+    transition: opacity 2s;
 }
 
 .demo-card-square > .mdl-card__title {
@@ -54,14 +62,26 @@ table {
 }
 
 /*modals*/
+.demo-card-square.mdl-card.mdl-shadow--2dp {
+    z-index: 0;
+    padding: 20px;
+}
+
 .demo-card-square.mdl-card.mdl-shadow--2dp.is-visible {
     top: 15%;
     width: 45%;
     left: 30%;
     max-height: 332px;
+    z-index: 10000;
+    opacity: 1;
 }
 
-#signInInfo, #addInformationInfo {
+#addProductModal {
+    height: 80% !important;
+    max-height: 700px;
+}
+
+#addInformationInfo {
     top: 15%;
     width: 45%;
     left: 30%;
@@ -76,7 +96,7 @@ table {
     color: #fff;
 }
 
-.demo-card-square.mdl-card.is-visible{
+.demo-card-square.mdl-card.is-visible {
     display: block;
 }
 
@@ -95,3 +115,14 @@ table {
 .details.is-visible {
     display: block;
 }
+
+.informations {
+    display: none;
+    opacity: 0;
+}
+
+.informations.is-visible {
+    display: block;
+    opacity: 1;
+}
+

@@ -1,97 +1,100 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/header.css' />
-    <link rel='stylesheet' href='/stylesheets/cards.css' />
+    <head>
+        <title><%= title %></title>
+        <link rel='stylesheet' href='/stylesheets/header.css'/>
+        <link rel='stylesheet' href='/stylesheets/cards.css'/>
+        <link rel='stylesheet' href='/stylesheets/selectBox.css'/>
+        <link rel='stylesheet' href='/stylesheets/flip.css'/>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  </head>
-  <body>
-    <!-- Simple header with scrollable tabs. -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <a id="comalmot" href="/"><span class="mdl-layout-title">컴알못</span></a>
-          <p id="accountName">
-              <% if(login_ok) {%>
-                <%= login_id %>
-              <% } %>
-          </p>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+        <script src="//cdn.ckeditor.com/4.7.2/basic/ckeditor.js"></script>
+    </head>
+    <body>
+        <!-- Simple header with scrollable tabs. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row">
+                    <!-- Title -->
+                    <a id="comalmot" href="/"><span class="mdl-layout-title">컴알못</span></a>
+                    <p id="accountName">
+                        <% if(login_ok) { %>
+                        <%= login_id %>
+                        <% } %>
+                    </p>
+                </div>
+                <!-- Tabs -->
+                <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+                    <a href="#scroll-tab-1" class="mdl-layout__tab is-active">CPU</a>
+                    <a href="#scroll-tab-2" class="mdl-layout__tab">RAM</a>
+                    <a href="#scroll-tab-3" class="mdl-layout__tab">메인보드</a>
+                    <a href="#scroll-tab-4" class="mdl-layout__tab">VGA</a>
+                    <a href="#scroll-tab-5" class="mdl-layout__tab">SSD</a>
+                    <a href="#scroll-tab-6" class="mdl-layout__tab">HDD</a>
+                </div>
+            </header>
+
+            <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title">목록</span>
+                <nav class="mdl-navigation">
+                    <% if(login_ok) { %>
+                    <a class="mdl-navigation__link" href="/logout">Logout</a>
+                    <% } else{ %>
+                    <a class="mdl-navigation__link" href="#" id="login">Login</a>
+                    <% } %>
+                    <a class="mdl-navigation__link" href="#" id="addProduct">제품 추가</a>
+                    <a class="mdl-navigation__link" id="addInformation" href="#">정보 추가</a>
+                    <a class="mdl-navigation__link" href="#">Link</a>
+                </nav>
+            </div>
+
+            <%- include modals/login.ejs %>
+            <%- include modals/addProduct.ejs %>
+            <%- include modals/addInformation.ejs %>
+            <%- include modals/information.ejs %>
+            <%- include addInformation.ejs %>
+
+            <main class="mdl-layout__content">
+                <!-- <button onclick="dim();">Dim</button> -->
+                <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
+                    <div class="page-content"><%- include parts/cpu.ejs %></div>
+                </section>
+                <section class="mdl-layout__tab-panel" id="scroll-tab-2">
+                    <div class="page-content"><%- include parts/ram.ejs %></div>
+                </section>
+                <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+                    <div class="page-content"><%- include parts/mainBoard.ejs %></div>
+                </section>
+                <section class="mdl-layout__tab-panel" id="scroll-tab-4">
+                    <div class="page-content">VGA</div>
+                </section>
+                <section class="mdl-layout__tab-panel" id="scroll-tab-5">
+                    <div class="page-content"><%- include parts/ssd.ejs %></div>
+                </section>
+                <section class="mdl-layout__tab-panel" id="scroll-tab-6">
+                    <div class="page-content">HDD</div>
+                </section>
+            </main>
         </div>
-        <!-- Tabs -->
-        <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-          <a href="#scroll-tab-1" class="mdl-layout__tab is-active">CPU</a>
-          <a href="#scroll-tab-2" class="mdl-layout__tab">RAM</a>
-          <a href="#scroll-tab-3" class="mdl-layout__tab">메인보드</a>
-          <a href="#scroll-tab-4" class="mdl-layout__tab">VGA</a>
-          <a href="#scroll-tab-5" class="mdl-layout__tab">SSD</a>
-          <a href="#scroll-tab-6" class="mdl-layout__tab">HDD</a>
-        </div>
-      </header>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <!--<script src="/node_modules/jquery/dist/jquery.min.js"></script>-->
+        <script src='/javascripts/navigator.js'></script>
+        <script src='/javascripts/ajax.js'></script>
+        <script src='//www.goat1000.com/jquery.tagcanvas.min.js' type='text/javascript'/>
 
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">목록</span>
-        <nav class="mdl-navigation">
-          <% if(login_ok) {%>
-            <a class="mdl-navigation__link" href="/logout">Logout</a>
-          <% } else{ %>
-              <a class="mdl-navigation__link" href="#" id="login">Login</a>
-          <% } %>
-         <a class="mdl-navigation__link" href="#" id="addProduct">제품 추가</a>
-         <a class="mdl-navigation__link" href="#">정보 추가</a>
-         <a class="mdl-navigation__link" href="#">Link</a>
-       </nav>
-      </div>
-
-      <%- include modals/login.ejs %>
-      <%- include signIn.ejs %>
-      <%- include modals/addProduct.ejs %>
-      <%- include addInformation.ejs %>
-
-      <main class="mdl-layout__content">
-        <!-- <button onclick="dim();">Dim</button> -->
-        <div id="dimmer" onclick="dim(false);"></div>
-        <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
-          <div class="page-content"><%- include parts/cpu.ejs %></div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-2">
-          <div class="page-content"><%- include parts/ram.ejs %></div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-3">
-          <div class="page-content">MAIN BOARD</div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-4">
-          <div class="page-content">VGA</div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-5">
-          <div class="page-content"><%- include parts/ssd.ejs %></div>
-        </section>
-        <section class="mdl-layout__tab-panel" id="scroll-tab-6">
-          <div class="page-content">HDD</div>
-        </section>
-      </main>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!--<script src="/node_modules/jquery/dist/jquery.min.js"></script>-->
-    <script src='/javascripts/main.js'></script>
-    <script src='/javascripts/ajax.js'></script>
-    <script src='//www.goat1000.com/jquery.tagcanvas.min.js' type='text/javascript'/>
-
-    <script type="text/javascript">
-      $('#canvas3dTagCloud').tagcanvas({
-        textColour : '#000',
-        outlineThickness : 2,
-        maxSpeed : 0.03,
-        depth : 0.75,
-        zoom: 1.15,
-        weight: true,
-        weightFrom: "data-weight",
-        weightSize: 5
-      });
-    </script>
-  </body>
+        <script type="text/javascript">
+          $('#canvas3dTagCloud').tagcanvas({
+            textColour: '#000',
+            outlineThickness: 2,
+            maxSpeed: 0.03,
+            depth: 0.75,
+            zoom: 1.15,
+            weight: true,
+            weightFrom: "data-weight",
+            weightSize: 5
+          });
+        </script>
+    </body>
 </html>

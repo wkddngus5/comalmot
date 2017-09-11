@@ -1,0 +1,20 @@
+#loginModal {
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+}
+
+.plain {
+    margin: 0;
+    display: block;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+#loginModal .back {
+    transform: rotateY( 180deg );
+}
+
+#loginModal.flipped {
+    transform: rotateY( 180deg );
+}
