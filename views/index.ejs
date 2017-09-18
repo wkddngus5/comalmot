@@ -40,9 +40,9 @@
                 <span class="mdl-layout-title">목록</span>
                 <nav class="mdl-navigation">
                     <% if(login_ok) { %>
-                    <a class="mdl-navigation__link" href="/logout">Logout</a>
+                        <a class="mdl-navigation__link" href="/logout">Logout</a>
                     <% } else{ %>
-                    <a class="mdl-navigation__link" href="#" id="login">Login</a>
+                        <a class="mdl-navigation__link" href="#" id="login">Login</a>
                     <% } %>
                     <a class="mdl-navigation__link" href="#" id="addProduct">제품 추가</a>
                     <a class="mdl-navigation__link" id="addInformation" href="#">정보 추가</a>
@@ -68,13 +68,13 @@
                     <div class="page-content"><%- include parts/mainBoard.ejs %></div>
                 </section>
                 <section class="mdl-layout__tab-panel" id="scroll-tab-4">
-                    <div class="page-content">VGA</div>
+                    <div class="page-content"><%- include parts/vga.ejs %></div>
                 </section>
                 <section class="mdl-layout__tab-panel" id="scroll-tab-5">
                     <div class="page-content"><%- include parts/ssd.ejs %></div>
                 </section>
                 <section class="mdl-layout__tab-panel" id="scroll-tab-6">
-                    <div class="page-content">HDD</div>
+                    <div class="page-content"><%- include parts/hdd.ejs %></div>
                 </section>
             </main>
         </div>

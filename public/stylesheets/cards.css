@@ -4,28 +4,66 @@
 }
 
 #cpuWhatImg {
-    background: url('../images/cpuWhat.jpg') center / cover;
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -10px -562px;
 }
 
 #cpuPointImg {
-    background: url('../images/cpuPoint.jpg') center / cover;
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -286px -10px;
 }
 
 #ramWhatImg {
-    background: url('../images/ramWhat.jpg') center
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -286px -562px;
 }
 
 #ramPointImg {
-    background: url('../images/ramPoint.jpg') center
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -10px -10px;
 }
 
 #mainBoardWhatImg {
-    background: url('../images/mainBoardWhat.jpeg') center
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -562px -286px;
 }
 
 #mainBoardPointImg {
-    background: url('../images/mainBoardPoint.jpg') center
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -562px -10px;
 }
+
+#vgaWhatImg {
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -838px -562px;
+}
+
+#vgaPointImg {
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -838px -286px;
+}
+
+#ssdWhatImg {
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -562px -562px;
+}
+
+#ssdPointImg {
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -838px -10px;
+}
+
+#hddWhatImg {
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -286px -286px;
+}
+
+#hddPointImg {
+    width: 256px; height: 256px;
+    background: url('../images/css_sprites.png') -10px -286px;
+}
+
+
 
 .demo-card-image > .mdl-card__actions {
     height: 52px;
