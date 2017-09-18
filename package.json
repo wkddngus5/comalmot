@@ -26,5 +26,18 @@
     "morgan": "~1.7.0",
     "serve-favicon": "~2.3.2",
     "sw-toolbox": "^3.6.0"
-  }
+  },
+  "main": ".eslintrc.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wkddngus5/comalmot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wkddngus5/comalmot/issues"
+  },
+  "homepage": "https://github.com/wkddngus5/comalmot#readme",
+  "description": ""
 }
