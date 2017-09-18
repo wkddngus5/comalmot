@@ -1,0 +1,76 @@
+<article id="vga">
+  <table class="info">
+    <tr>
+      <th>
+        <!-- Image card "ramWhat"-->
+        <div class="demo-card-image mdl-card mdl-shadow--2dp" id="vgaWhatImg">
+          <div class="mdl-card__title mdl-card--expand"></div>
+          <div class="mdl-card__actions">
+            <span class="demo-card-image__filename">VGA이란?</span>
+          </div>
+        </div>
+        <!-- <button onclick="dim();">Dim</button> -->
+      </th>
+      <th>
+        <!-- Image card "ramPoint"-->
+        <div class="demo-card-image mdl-card mdl-shadow--2dp" id="vgaPointImg">
+          <div class="mdl-card__title mdl-card--expand"></div>
+          <div class="mdl-card__actions">
+            <span class="demo-card-image__filename">VGA주요 포인트!</span>
+          </div>
+        </div>
+      </th>
+    </tr>
+  </table>
+  <!-- Square card -->
+  <hr>
+  <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+    <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">이름</th>
+      <th class="mdl-data-table__cell--non-numeric">제조사</th>
+      <th class="mdl-data-table__cell--non-numeric">메모리 용량</th>
+      <th class="mdl-data-table__cell--non-numeric">칩셋 그룹</th>
+      <th class="mdl-data-table__cell--non-numeric">브랜드 로그</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for(var i = 0 ; i < vgaList.length ; i++) {%>
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric"><%= vgaList[i].name %></td>
+      <td class="mdl-data-table__cell--non-numeric"><%= vgaList[i].company %></td>
+      <td class="mdl-data-table__cell--non-numeric"><%= vgaList[i].details.capacity %></td>
+      <td class="mdl-data-table__cell--non-numeric"><%= vgaList[i].details.chipsetGroup %></td>
+      <td class="mdl-data-table__cell--non-numeric"><%= vgaList[i].details.brandLog %></td>
+    </tr>
+    <% } %>
+    </tbody>
+  </table>
+  <hr><br>
+
+
+  <div class="demo-card-square mdl-card mdl-shadow--2dp" id='ramWhatInfo' style="overflow:scroll; height:70%;">
+    <div class="mdl-card__supporting-text" >
+        <% for(var i=0; i<informationsList.length; i++) {%>
+        <% if(informationsList[i].name=="vgaWhat") { %>
+      <h3><%= informationsList[i].title %></h3>
+      <p><%= informationsList[i].contents %></p>
+        <% } %>
+        <% } %>
+    </div>
+  </div>
+
+
+  <div class="demo-card-square mdl-card mdl-shadow--2dp" id='vgaPointInfo' style="overflow:scroll; height:70%;">
+    <!-- <div id="" style="overflow:scroll; height:400px;"> -->
+    <div class="mdl-card__supporting-text">
+        <% for(var i=0; i<informationsList.length; i++) {%>
+        <% if(informationsList[i].name=="vgaPoint") { %>
+      <h3><%= informationsList[i].title %></h3>
+      <p><%= informationsList[i].contents %></p>
+        <% } %>
+        <% } %>
+    </div>
+  </div>
+
+</article>

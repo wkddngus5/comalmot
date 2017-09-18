@@ -188,15 +188,23 @@ router.post('/product', (req, res) => {
 });
 
 router.post('/information', (req, res) => {
-  Information.find({name:req.body.name}, (err, info) => {
+  Information.findOne({name:req.body.name}, (err, info) => {
     if(err) {
       res.status(500).json({'err':err});
     }
     if(!info) {
       console.log('no info!');
-      res.status(200).json({'err':'no info'});
+      info = new Information;
+      info.name = req.body.name;
     }
-    res.status(201).json(info);
+    info.title = req.body.title;
+    info.contents = req.body.contents;
+    info.save(err => {
+      if(err) {
+        res.status(500).json({'err':err});
+      }
+      res.status(201).json(info);
+    });
   });
 });
 

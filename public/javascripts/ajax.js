@@ -37,6 +37,7 @@ class Ajax {
       console.log(res);
       return res.json();
     }).then(json => {
+      location.reload();
       console.log('res: ', json);
     });
   }

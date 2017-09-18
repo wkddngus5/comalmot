@@ -1,20 +1,50 @@
 #loginModal {
     position: absolute;
     transform-style: preserve-3d;
-    transition: transform 1s;
+    transition: transform 2s;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .plain {
     margin: 0;
     display: block;
     position: absolute;
+    -o-transition: all 2s;
+    -ms-transition: all 2s;
+    -moz-transition: all 2s;
+    -webkit-transition: all 2s;
+    transition: all 2s;
+    -webkit-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
-#loginModal .back {
-    transform: rotateY( 180deg );
+#loginModal .front {
+    z-index: 2;
+    background-color: white;
 }
 
-#loginModal.flipped {
-    transform: rotateY( 180deg );
+#loginModal .back {
+    z-index: 1;
+    -webkit-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    background-color: white;
+}
+
+#loginModal.flipped .front{
+    z-index: 1;
+    -webkit-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+#loginModal.flipped .back{
+    z-index: 2;
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    transform: rotateY(0deg);
 }

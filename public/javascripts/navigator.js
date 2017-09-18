@@ -42,7 +42,11 @@ class Navigator {
       e.target.closest('.selectBox').querySelector('label').innerText = e.target.value;
     });
     document.querySelector("#moveToSignUp").addEventListener('click', event => {
-      this.flip('loginModal')
+      this.flip('loginModal');
+    });
+
+    document.querySelector("#moveToLogin").addEventListener('click', event => {
+      this.flip('loginModal');
     });
   }
 
